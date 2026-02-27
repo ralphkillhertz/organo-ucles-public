@@ -528,7 +528,7 @@ function render() {
   while (cur.getTime() <= T1 + 86400000) {
     const lbl = document.createElement('div');
     lbl.className = 'gantt-axis-label' + (cur.getMonth() === 0 ? ' year' : '');
-    lbl.textContent = cur.toLocaleDateString('es-ES',{month:'short',year:'2-digit'});
+    lbl.textContent = cur.getMonth() === 0 ? cur.getFullYear().toString() : cur.toLocaleDateString('es-ES',{month:'short'});
     axis.appendChild(lbl);
     cur.setMonth(cur.getMonth() + 1);
   }
